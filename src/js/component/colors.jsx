@@ -1,5 +1,13 @@
 import React from "react";
 
+const ColorCard = (props) => {
+    return <div className="card mt-1" style={{ width: "18rem", backgroundColor: props.color }}>
+        <div className="card-body">
+            <h5 className="card-title">Color : {props.color} </h5>
+        </div>
+    </div>
+}
+
 
 const Colors = () => {
 
@@ -30,12 +38,8 @@ const Colors = () => {
     return <div className="d-flex flex-column mx-auto p-2 min-vh-100">
         <h1>Colors Generated</h1>
         {
-            colorList.map((color, index) => {
-                return <div key={index} className="card mt-1" style={{ width: "18rem", backgroundColor: color }}>
-                    <div className="card-body">
-                        <h5 className="card-title">Color : {color} </h5>
-                    </div>
-                </div>
+            colorList.map((colorGenerated, index) => {
+                return <ColorCard key={index} color={colorGenerated} />
             })
         }
     </div>

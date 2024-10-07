@@ -9,9 +9,11 @@ import "../styles/index.css";
 import HomeDefault ,{ Home } from "./component/home.jsx"; // <---
 
 //render your react application
-ReactDOM.createRoot(
+let app = ReactDOM.createRoot(
     document.querySelector('#react-root')
-).render(<>
-    <Home/>
-</>);
+)
+const appName = "Color Generator";
 
+app.render(<Fragment>
+    <Home title={appName} />
+</Fragment>);
