@@ -16,7 +16,10 @@ export function Home(props) {
 	return (
 		<div className="cover-container d-flex w-100 p-3 mx-auto flex-column">
 			<Navbar appTitle={appName} />
-			<Hero details={undefined} />
+			<Hero details={{ title: "Colors in a less than a Click",
+				description: "Generate Randonm Colors with a Click ",
+				action: "Generate" }}
+			/>
 			<Colors />
 			<Footer />
 		</div>

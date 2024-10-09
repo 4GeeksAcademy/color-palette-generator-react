@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ColorCard = (props) => {
     return <div className="card mt-1" style={{ width: "18rem", backgroundColor: props.color }}>
@@ -26,17 +26,29 @@ const Colors = () => {
 
     const randonColor = generateRandomColor();
 
-    const colorsStyles = { width: "18rem", backgroundColor: randonColor };
+    const [colorList, setColorList] = useState([])
 
-    const colorList = Array(10)
+    const addColorToList = () => {
 
-    for (let i = 0; i < colorList.length; i++) {
-        colorList[i] = generateRandomColor()
+
+        const newColorList = [];
+
+        const newColor = generateRandomColor()
+
+        for (let color of colorList) {
+            newColorList.push(color);
+        }
+
+        newColorList.push(newColor);
+
+        setColorList(newColorList);
+
     }
 
 
     return <div className="d-flex flex-column mx-auto p-2 min-vh-100">
         <h1>Colors Generated</h1>
+        <button className="btn btn-lg btn-light" onClick={addColorToList} >Add Color</button>
         {
             colorList.map((colorGenerated, index) => {
                 return <ColorCard key={index} color={colorGenerated} />
