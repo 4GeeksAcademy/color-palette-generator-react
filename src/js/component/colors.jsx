@@ -24,31 +24,15 @@ const Colors = () => {
         return newColor;
     }
 
-    const randonColor = generateRandomColor();
-
     const [colorList, setColorList] = useState([])
-
-    const addColorToList = () => {
-
-
-        const newColorList = [];
-
-        const newColor = generateRandomColor()
-
-        for (let color of colorList) {
-            newColorList.push(color);
-        }
-
-        newColorList.push(newColor);
-
-        setColorList(newColorList);
-
-    }
-
 
     return <div className="d-flex flex-column mx-auto p-2 min-vh-100">
         <h1>Colors Generated</h1>
-        <button className="btn btn-lg btn-light" onClick={addColorToList} >Add Color</button>
+        <button className="btn btn-lg btn-light"
+            onClick={() => setColorList([generateRandomColor(), ...colorList])}
+        >
+            Add Color
+        </button>
         {
             colorList.map((colorGenerated, index) => {
                 return <ColorCard key={index} color={colorGenerated} />
